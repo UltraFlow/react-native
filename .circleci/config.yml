@@ -174,7 +174,8 @@ android_defaults: &android_defaults
   environment:
     - TERM: "dumb"
     - ADB_INSTALL_TIMEOUT: 10
-    - GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx512m -XX:+HeapDumpOnOutOfMemoryError"'
+    - _JAVA_OPTIONS: '-Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap'
+    - GRADLE_OPTS: '-Dorg.gradle.parallel=true -Dorg.gradle.configureondemand=true -Dorg.gradle.daemon=false -Dorg.gradle.jvmargs="-Xms512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"'
     - ANDROID_NDK: '/opt/ndk/android-ndk-r10e'
     - BUILD_THREADS: 2
 
